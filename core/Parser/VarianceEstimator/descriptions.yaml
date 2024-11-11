@@ -1,0 +1,8 @@
+variance estimator:
+  type: This string specifies the simulation type. When the code provides variance estimation, this section is skipped. For stochastic simulations that do not provide variance estimation, there are two methods, \emph{sample} and \emph{parametric model}. The sample method computes the unbiased sample standard deviation, while the parametric model fits the data to the variance model. For deterministic simulations, the type is \emph{constant} and the rest of the block is not used.
+  parametric model:
+    exponents: This array lists the exponents for the variance model when the parametric model is used.
+    equality of variance test:
+      enable: This allows the user to specify if the equality of variance test is enabled.
+      test: When the equality of variance test is enabled, the test name should be specified here. 
+      critical p-value: This provides the user the ability to specify the critical p-value. When users want to force the test to pass, set to 0.0.

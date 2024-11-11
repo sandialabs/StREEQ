@@ -1,0 +1,11 @@
+error model:
+  coefficients: _special_
+  converged result:
+    variable: True
+    lower bounds: _special_
+    upper bounds: _special_
+  orders of convergence:
+    nominal: _no_default_
+    variable: _special_
+    lower bounds: _special_
+    upper bounds: _special_

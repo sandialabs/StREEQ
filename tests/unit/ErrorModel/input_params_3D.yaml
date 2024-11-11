@@ -1,0 +1,24 @@
+response data:
+  format:
+    standard deviations: False
+    stochastic: False
+
+error model:
+  coefficients: ['beta0', 'beta1', 'beta2', 'beta3', 'beta12', 'beta13', 'beta23']
+  converged result:
+    variable: True
+    lower bounds: -np.inf
+    upper bounds: np.inf
+  orders of convergence:
+    nominal: [1, 2, 3]
+
+numerics:
+  cvxopt:
+    enable: True
+    allow override: False
+    kwargs: {'feastol': 1.e-6, 'abstol': 1.e-6, 'maxiters': 100, 'show_progress': False}
+  bicgstab:
+    kwargs: {'atol': 1.e-6, 'maxiter': 1000}
+  final minimization:
+    enable: True
+    kwargs: {'method': 'Nelder-Mead', 'options': {'maxiter':10000, 'xatol': 1.e-4, 'fatol': 1.e-6}}

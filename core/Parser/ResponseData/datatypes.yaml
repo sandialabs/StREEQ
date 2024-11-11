@@ -1,0 +1,17 @@
+response data:
+  file:
+    name: str
+    type: str
+    dtype: dtype
+  format:
+    stochastic: bool
+    dimensions: u_int
+    number of QOIs: u_int
+    QOI names: str_list
+    standard deviations: bool
+    maximum replications: u_int
+  selection:
+    QOI list: u_int_array
+    lower X bounds: u_real_array
+    upper X bounds: u_real_array
+  exact values: real_array

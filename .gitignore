@@ -1,0 +1,15 @@
+*.pyc
+*.pyo
+*.DS_Store
+# added by Aaron
+*.aux
+*.bbl
+*.blg
+*.gz
+*.lof
+manual/StREEQ_UsersManual.log
+*.lot
+*.out
+manual/StREEQ_UsersManual.pdf
+*.toc
+*TestResults*

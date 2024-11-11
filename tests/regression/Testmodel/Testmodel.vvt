@@ -1,0 +1,56 @@
+#VVT: link : ../Util/test_functions.py
+#VVT: link : Testmodel.yaml Testmodel.dat
+#VVT: parameterize (autotype): np = 4
+
+import script_util as script
+import vvtest_util as vvt
+
+from test_functions import get_interval, is_subinterval, interval_str
+
+from pathlib import Path
+import numpy as np
+import pandas as pd
+import os, sys, subprocess
+
+StREEQ_path = Path('../../../../../')
+test_name = 'Testmodel'
+
+#=======================================================================================================================
+tolerances = {
+    'QOI 1': {'beta0': (0.994, 1.009), 'gamma1': (1.67, 2.35), 'gamma2': (0.80, 1.38)},
+}
+
+#=======================================================================================================================
+subprocess.run(f"{StREEQ_path}/streeq -m -P {vvt.np} -s {test_name}.yaml", shell=True)
+print('='*100)
+
+#=======================================================================================================================
+overall_result = 'PASS'
+fmt = '6.4f'
+frame = pd.read_pickle(Path('output') / 'summary_statistics.pkl')
+print("REGRESSION TESTING:\n")
+for qoi, tolerance in tolerances.items():
+    for param, outside in tolerance.items():
+        subframe = frame.loc[qoi, param]
+        inside = get_interval(subframe)
+        inside_str, outside_str = interval_str(inside, fmt), interval_str(outside, fmt)
+        print(f"Examining {param} intervals for QOI-{qoi}:")
+        if not np.isnan(subframe['exact']):
+            result = 'PASS' if subframe['bounded'] else 'DIFF'
+            print(f"  Estimated uncertainty intervals {inside_str} bound exact result "
+                + f"{subframe['exact']:^{fmt}}?--{result}")
+            if result == 'DIFF':
+                overall_result = 'DIFF'
+        result = 'PASS' if is_subinterval(inside, outside) else 'DIFF'
+        print(f"  Estimated uncertainty intervals {inside_str} bounded by "
+            + f"tolerance envelope {outside_str}?--{result}")
+        if result == 'DIFF':
+            overall_result = 'DIFF'
+        print('')
+print(f"Overall result: {overall_result}")
+
+#=======================================================================================================================
+if overall_result == 'DIFF':
+    script.exit_diff()
+else:
+    sys.exit(0)

@@ -1,0 +1,8 @@
+variance estimator:
+  type: _special_
+  parametric model:
+    exponents: _special_
+    equality of variance test:
+      enable: _special_
+      test: Brown-Forsythe
+      critical p-value: 0.01

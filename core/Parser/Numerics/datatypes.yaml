@@ -1,0 +1,18 @@
+numerics:
+  global optimization:
+    enable: bool
+    method: str
+    kwargs: dict
+  local minimization:
+    kwargs: dict
+  final minimization:
+    enable: bool
+    kwargs: dict
+  cvxopt:
+    enable: bool
+    allow override: bool
+    kwargs: dict
+  bicgstab:
+    kwargs: dict
+  random number generator:
+    initial seed: int

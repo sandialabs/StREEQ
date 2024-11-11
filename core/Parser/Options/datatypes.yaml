@@ -1,0 +1,12 @@
+options:
+  automatic subset selection:
+    enable: bool
+    xi fitting model:
+      p: u_real
+      s: real
+  credibility test:
+    critical p-value: u_real
+  statistics output:
+    statistics type: str
+  plotting:
+    enable: bool

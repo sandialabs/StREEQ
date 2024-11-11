@@ -1,0 +1,23 @@
+title: streeq_template
+
+response data:
+  file:
+    name: output.dat
+    type: automatic
+    dtype: np.float64
+  format:
+    stochastic: False
+    dimensions: 1
+    number of QOIs: 1
+#  exact values: [1.0]
+
+variance estimator:
+  type: constant
+
+error model:
+  orders of convergence:
+    nominal: [2.]
+
+numerics:
+  random number generator:
+    initial seed: 2833877509

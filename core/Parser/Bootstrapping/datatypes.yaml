@@ -1,0 +1,6 @@
+bootstrapping:
+  number of samples: u_int
+  method: str
+  confidence level: u_real
+  smoothed:
+    relative noise: u_real

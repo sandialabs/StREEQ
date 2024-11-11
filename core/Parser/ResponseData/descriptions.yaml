@@ -1,0 +1,17 @@
+response data:
+  file:
+    name: File name to load response data from, including the file extension.
+    type: Response data file type. The default is \emph{automatic}, which automatically detects the file type, but when this fails, users should specify either \emph{ascii} or \emph{numpy}.
+    dtype: Datatype to represent response data set, which specifies the precision of the imported data. Most users will utilize the default datatype, \emph{np.float64}. Analyses with large datasets that take a long time to import might want to decrease the precision.
+  format:
+    stochastic: This flag specifies if it is true that the response data is stochastic.
+    dimensions: Number of discretization parameters in response data set, which is refered to as \emph{D} in the previous chapter.
+    number of QOIs: Number of QOIs in the response data set.
+    QOI names: List of names for QOIs. Must be a list of length \emph{number of QOIs}.
+    standard deviations: Specify if the response data set includes estimated standard deviations. Only applicable when \emph{stochastic} is \emph{True}.
+    maximum replications: Maximum number of replications to use in the credibility test fits. A warning will be given if the maximum number of replications is less than five.
+  selection:
+    QOI list: List of QOI indices to include in analysis. These indicies must exist in the range [1, \emph{number of QOIs}].
+    lower X bounds: Lower bounds on discretization levels to include in analysis, where an array of length \emph{number of QOIs} is expected.
+    upper X bounds: Upper bounds on discretization levels to include in analysis, where an array of length \emph{number of QOIs} is expected.
+  exact values: Specify exact QOI values (if available), where an array of length \emph{number of QOIs} is expected.

@@ -1,0 +1,18 @@
+numerics:
+  global optimization:
+    enable: "Enable global optimization"
+    method: "Global optimization method, with options: brute, basinhopping"
+    kwargs: "Key word arguments to use in global optimizer"
+  local minimization:
+    kwargs: "Key word arguments passed to local minimizer"
+  final minimization:
+    enable: "Enable final minimization"
+    kwargs: "Key word arguments passed to final minimizer"
+  cvxopt:
+    enable: "Enable cvxopt package for linear optimization"
+    allow override: "Allow non-cvxopt operation when cvxopt package is not available"
+    kwargs: "Key word arguments for cvxopt package"
+  bicgstab:
+    kwargs: "Key word arguments for Biconjugate gradient stabilization least-squares solver"
+  random number generator:
+    initial seed: "Initial seed for random number generator"

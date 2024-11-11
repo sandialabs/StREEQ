@@ -1,0 +1,28 @@
+title: Mie_sphere
+
+response data:
+  file:
+    name: Mie_sphere.dat
+    type: automatic
+    dtype: np.float64
+  format:
+    stochastic: False
+    dimensions: 1
+    number of QOIs: 6
+    QOI names: ['Y1', 'Y2 8-point', 'Y2 7-point', 'Y2 6-point', 'Y2 5-point', 'Y2 4-point']
+  exact values: [5.88644, 0.555542, 0.555542, 0.555542, 0.555542, 0.555542]
+
+variance estimator:
+  type: constant
+
+error model:
+  orders of convergence:
+    nominal: [2.]
+
+numerics:
+  random number generator:
+    initial seed: 2833877509
+
+options:
+  statistics output:
+    statistics type: parametric

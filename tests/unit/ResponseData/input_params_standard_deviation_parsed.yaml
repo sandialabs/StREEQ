@@ -1,0 +1,73 @@
+title: Albedo-ninemodel
+response data:
+  file:
+    name: Albedo.dat
+    type: automatic
+    dtype: np.float64
+  format:
+    stochastic: true
+    dimensions: 1
+    number of QOIs: 3
+    QOI names: [Y13, Y11, Y6/]
+    standard deviations: true
+    maximum replications: 20
+  selection:
+    QOI list: [2, 3]
+    lower X bounds: [0.0]
+    upper X bounds: [np.inf]
+  exact values: [nan, nan, nan]
+variance estimator:
+  type: constant
+  parametric model:
+    exponents: [0.0]
+    equality of variance test:
+      enable: false
+      test: Brown-Forsythe
+      critical p-value: 0.01
+bootstrapping:
+  number of samples: 100
+  method: parametric
+  confidence level: 0.95
+  smoothed:
+    relative noise: 0.1
+error model:
+  coefficients: [beta0, beta1]
+  converged result:
+    variable: true
+    lower bounds: [0.0, 0.0, 0.0]
+    upper bounds: [1.0, 1.0, 1.0]
+  orders of convergence:
+    nominal: [1.0]
+    variable: [gamma1]
+    lower bounds: [0.25]
+    upper bounds: [2.0]
+fitting models:
+  model set: ninemodel
+  weight exponent: 1.0
+numerics:
+  global optimization:
+    enable: true
+    method: brute
+    kwargs: {Ns: 10, finish: None}
+  local minimization:
+    kwargs: {method: Nelder-Mead, options: {maxiter: 1000, xatol: 0.001, fatol: 0.0001}}
+  final minimization:
+    enable: true
+    kwargs: {method: Nelder-Mead, options: {maxiter: 10000, xatol: 0.0001, fatol:
+      1e-06}}
+  cvxopt:
+    enable: true
+    allow override: false
+    kwargs: {feastol: 1e-06, abstol: 1e-06, maxiters: 100, show_progress: False}
+  bicgstab:
+    kwargs: {atol: 1e-06, maxiter: 1000}
+  random number generator:
+    initial seed: 1077352406
+options:
+  automatic subset selection:
+    enable: true
+    xi fitting model:
+      p: 1.0
+      s: 1.0
+  credibility test:
+    critical p-value: 0.01

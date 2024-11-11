@@ -1,0 +1,12 @@
+options:
+  automatic subset selection:
+    enable: False
+    xi fitting model:
+      p: 1
+      s: 1
+  credibility test:
+    critical p-value: 0.01
+  statistics output:
+    statistics type: robust
+  plotting:
+    enable: True

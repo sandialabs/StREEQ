@@ -1,0 +1,31 @@
+# Mie scattering problem in Eiger
+# X1 is inverse number of elements per wavelength
+# Y1 is 10 * log10( 4 * pi * (Ephi / E0) ** 2 ), where E0 is 1 V/m
+# Y2 is Ephi, the phi component of the electric field in V/m
+#
+# X1          Y1        Y2 8-point  Y2 7-point  Y2 6-point  Y2 5-point  Y2 4-point
+  0.0500000   5.04252   0.504105    nan         nan         nan         nan       
+  0.0333333   5.54019   0.533832    0.533832    nan         nan         nan       
+  0.0250000   5.700380  0.543769    0.543769    0.543769    nan         nan       
+  0.0200000   5.765784  nan         nan         nan         nan         nan       
+  0.0166667   5.803864  0.550286    0.550286    0.550286    0.550286    nan       
+  0.0142857   5.826659  nan         nan         nan         nan         nan       
+  0.0125000   5.840828  0.552633    0.552633    0.552633    0.552633    0.552633
+  0.0111111   5.849480  nan         nan         nan         nan         nan       
+  0.0100000   5.856573  nan         nan         nan         nan         nan       
+  0.00909091  5.861825  nan         nan         nan         nan         nan       
+  0.00833333  5.865676  0.554216    0.554216    0.554216    0.554216    0.554216
+  0.00769231  5.868839  nan         nan         nan         nan         nan       
+  0.00714286  5.871162  nan         nan         nan         nan         nan       
+  0.00666667  5.873276  nan         nan         nan         nan         nan       
+  0.00625000  5.874919  0.554806    0.554806    0.554806    0.554806    0.554806
+  0.00588235  5.876243  nan         nan         nan         nan         nan       
+  0.00555556  5.877304  nan         nan         nan         nan         nan       
+  0.00526316  5.878189  nan         nan         nan         nan         nan       
+  0.00500000  5.879086  nan         nan         nan         nan         nan       
+  0.00476190  5.879780  nan         nan         nan         nan         nan       
+  0.00454545  5.880386  nan         nan         nan         nan         nan       
+  0.00434783  5.880904  nan         nan         nan         nan         nan       
+  0.00416667  5.881368  0.555218    0.555218    0.55521791  0.555218    0.555218
+  0.00400000  5.881744  nan         nan         nan         nan         nan       
+  0.00384615  5.882106  nan         nan         nan         nan         nan       

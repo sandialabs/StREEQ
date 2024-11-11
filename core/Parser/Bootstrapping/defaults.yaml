@@ -1,0 +1,6 @@
+bootstrapping:
+  number of samples: 100
+  method: _special_
+  confidence level: 0.95
+  smoothed:
+    relative noise: 0.1

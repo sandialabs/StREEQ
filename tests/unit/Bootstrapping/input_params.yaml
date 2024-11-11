@@ -1,0 +1,21 @@
+response data:
+  format:
+    stochastic: True
+    standard deviations: False
+    maximum replications: 20
+
+variance estimator:
+  type: sample
+
+error model:
+  orders of convergence:
+    nominal: [1]
+
+bootstrapping:
+  method: _unset_
+  smoothed:
+    relative noise: 0.1
+
+numerics:
+  random number generator:
+    initial seed: 1957606662

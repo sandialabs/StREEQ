@@ -1,0 +1,8 @@
+variance estimator:
+  type: str
+  parametric model:
+    exponents: real_array
+    equality of variance test:
+      enable: bool
+      test: str
+      critical p-value: u_real

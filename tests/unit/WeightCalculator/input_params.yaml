@@ -1,0 +1,20 @@
+response data:
+  format:
+    standard deviations: False
+    stochastic: True
+
+variance estimator:
+  type: _unset_
+  parametric model:
+    equality of variance test:
+      test: Brown-Forsythe
+      critical p-value: 0.01
+    exponents: [3, -1.2]
+
+error model:
+  orders of convergence:
+    nominal: [2, 1]
+
+numerics:
+  random number generator:
+    initial seed: 503123394

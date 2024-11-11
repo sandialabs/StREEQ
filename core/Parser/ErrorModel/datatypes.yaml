@@ -1,0 +1,11 @@
+error model:
+  coefficients: str_list
+  converged result:
+    variable: bool
+    lower bounds: real_array
+    upper bounds: real_array
+  orders of convergence:
+    nominal: u_real_array
+    variable: str_list
+    lower bounds: u_real_array
+    upper bounds: u_real_array

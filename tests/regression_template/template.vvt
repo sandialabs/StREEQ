@@ -1,0 +1,43 @@
+#!/usr/bin/env python3
+# VVT : link : streeq_oneQOI.yaml
+# VVT : keywords : 
+
+# Add links and keywords above
+
+import sys
+import numpy as np
+import vvtest_util as vvt
+import subprocess
+import pandas as pd
+ 
+def run(vvt):
+    # Common variables
+
+    ############# Run Analytical Code ###########################################
+
+    # Run analytical code here (if necessary)
+
+    ############# Run Gemma #####################################################
+    
+    # Run and save Gemma data here to outout.dat
+    
+    ############# StREEQ Post Processing ########################################
+    subprocess.run(f"runStREEQ -m -P 2 -s streeq_oneQOI.yaml", shell=True)
+    fname1 = os.path.join("output","summary_statistics.txt")
+    bounded = pd.read_fwf(fname1)["bounded"][1:]
+    
+    # Print Results
+    print("Results Table")
+    print(pd.read_fwf(fname1))
+    print("Is solution and order of accuracy bounded?")
+    print(np.all(bounded))
+
+    # Pass/Diff/Fail Criteria
+    results = {"exit status":"FAIL", "error metrics": [] }
+    results['exit status'] = "PASS" if np.all(bounded) else "DIFF"
+    return results
+
+if __name__ == "__main__":
+    gemma.save_test_results(vvt)
+    results = run(vvt)
+    gemma.save_test_results(vvt, results, exit=True)

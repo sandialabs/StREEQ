@@ -1,0 +1,6 @@
+bootstrapping:
+  number of samples: "Number of bootstrap samples for each fit model"
+  method: "Bootstrapping method, with options: nonparametric, parametric, residuals, smoothed"
+  confidence level: "Parameter to specify the confidence level"
+  smoothed:
+    relative noise: "Relative noise parameter for smoothed bootstrap option"

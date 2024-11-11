@@ -1,0 +1,64 @@
+#VVT: link : ../Util/test_functions.py
+#VVT: link : BKW.yaml BKW.dat
+#VVT: parameterize (autotype): np = 4
+
+import script_util as script
+import vvtest_util as vvt
+
+from test_functions import get_interval, is_subinterval, interval_str
+
+from pathlib import Path
+import numpy as np
+import pandas as pd
+import os, sys, subprocess
+
+StREEQ_path = Path('../../../../../')
+test_name = 'BKW'
+
+#=======================================================================================================================
+tolerances = {
+    'QOI 1': {'beta0': (1.086e36, 1.097e36), 'gamma1': (0.23, 2.02)},
+    'QOI 2': {'beta0': (1.093e36, 1.105e36), 'gamma1': (0.23, 2.02)},
+    'QOI 5': {'beta0': (1.112e36, 1.123e36), 'gamma1': (0.23, 2.02)},
+    'QOI 10': {'beta0': (1.140e36, 1.152e36), 'gamma1': (0.23, 2.02)},
+    'QOI 20': {'beta0': (1.187e36, 1.198e36), 'gamma1': (0.23, 2.02)},
+    'QOI 50': {'beta0': (1.256e36, 1.264e36), 'gamma1': (0.89, 1.85)},
+    'QOI 100': {'beta0': (1.288e36, 1.297e36), 'gamma1': (0.89, 1.50)},
+    'QOI 200': {'beta0': (1.296e36, 1.306e36), 'gamma1': (0.79, 1.27)},
+}
+
+#=======================================================================================================================
+subprocess.run(f"{StREEQ_path}/streeq -m -P {vvt.np} -s {test_name}.yaml", shell=True)
+print('='*100)
+
+#=======================================================================================================================
+overall_result = 'PASS'
+fmt1, fmt2 = '11.4e', '6.4f'
+frame = pd.read_pickle(Path('output') / 'summary_statistics.pkl')
+print("REGRESSION TESTING:\n")
+for qoi, tolerance in tolerances.items():
+    for param, outside in tolerance.items():
+        subframe = frame.loc[qoi, param]
+        inside = get_interval(subframe)
+        fmt = fmt1 if param == 'beta0' else fmt2
+        inside_str, outside_str = interval_str(inside, fmt), interval_str(outside, fmt)
+        print(f"Examining {param} intervals for QOI-{qoi}:")
+        if not np.isnan(subframe['exact']):
+            result = 'PASS' if subframe['bounded'] else 'DIFF'
+            print(f"  Estimated uncertainty intervals {inside_str} bound exact result "
+                + f"{subframe['exact']:^{fmt}}?--{result}")
+            if result == 'DIFF':
+                overall_result = 'DIFF'
+        result = 'PASS' if is_subinterval(inside, outside) else 'DIFF'
+        print(f"  Estimated uncertainty intervals {inside_str} bounded by "
+            + f"tolerance envelope {outside_str}?--{result}")
+        if result == 'DIFF':
+            overall_result = 'DIFF'
+        print('')
+print(f"Overall result: {overall_result}")
+
+#=======================================================================================================================
+if overall_result == 'DIFF':
+    script.exit_diff()
+else:
+    sys.exit(0)

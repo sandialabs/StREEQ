@@ -1,0 +1,12 @@
+options:
+  automatic subset selection:
+    enable: "Enable automatic subset selection"
+    xi fitting model:
+      p: "Norm order of fitting model to use for automatic subset selection"
+      s: "Weight parameter of fitting model to use for automatic subset selection"
+  credibility test:
+    critical p-value: "Critical p-value to use for credibility test"
+  statistics output:
+    statistics type: "Statistical output type for the summary statistics file. The three options are 'robust', 'parametric', and 'mixed'. 'robust' is the median with meadian absolute deviation, 'parametric' is the mean with bootstrap standard deviation, and 'mixed' is the median with meadian absolute deviation and bootstrap standard deviation."
+  plotting:
+    enable: "Enable automatic plotting"

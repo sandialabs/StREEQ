@@ -1,0 +1,27 @@
+title: Testmodel
+
+response data:
+  file:
+    name: Testmodel.dat
+  format:
+    stochastic: True
+    dimensions: 2
+    number of QOIs: 1
+  exact values: [1.]
+
+variance estimator:
+  type: parametric model
+  parametric model:
+    exponents: [0., 0.]
+
+error model:
+  orders of convergence:
+    nominal: [2., 1.]
+
+numerics:
+  random number generator:
+    initial seed: 2833877509
+
+options:
+  automatic subset selection:
+    enable: True

@@ -1,0 +1,17 @@
+response data:
+  file:
+    name: _no_default_
+    type: automatic
+    dtype: np.float64
+  format:
+    stochastic: True
+    dimensions: 1
+    number of QOIs: 1
+    QOI names: _special_
+    standard deviations: False
+    maximum replications: 20
+  selection:
+    QOI list: _special_
+    lower X bounds: _special_
+    upper X bounds: _special_
+  exact values: _special_

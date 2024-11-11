@@ -1,0 +1,37 @@
+title: Albedo-ninemodel
+
+response data:
+  file:
+    name: Albedo.dat
+  format:
+    stochastic: True
+    dimensions: 1
+    number of QOIs: 3
+    QOI names: ["$Y13$", "$Y_{11}$", "$Y6$"]
+    standard deviations: True
+  selection:
+    QOI list: [2, 3]
+
+bootstrapping:
+  confidence level: 0.95
+
+error model:
+  converged result:
+    lower bounds: [0., 0., 0.]
+    upper bounds: [1., 1., 1.]
+  orders of convergence:
+    nominal: [1.]
+
+fitting models:
+  model set: ninemodel
+  weight exponent: 1
+
+numerics:
+  random number generator:
+    initial seed: 1077352406
+
+options:
+  automatic subset selection:
+    enable: true
+  statistics output:
+    statistics type: robust

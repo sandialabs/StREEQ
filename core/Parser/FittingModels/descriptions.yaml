@@ -1,0 +1,3 @@
+fitting models:
+  model set: "Model set for fitting models, with options: sixmodel, ninemodel"
+  weight exponent: "Weight exponent for fitting models, which allows for the user to specify a fitting bias towards less or more discretizations"

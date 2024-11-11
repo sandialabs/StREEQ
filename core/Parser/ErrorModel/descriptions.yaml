@@ -1,0 +1,11 @@
+error model:
+  coefficients: "List of $\\beta$ parameters to include in error model, which must be consistent with the number of dimensions"
+  converged result:
+    variable: "Enable $\\beta_0$ coefficient in error model"
+    lower bounds: "List of lower bounds on $\\beta_0$ coefficient for each QOI, where the default is a list of -NaNs"
+    upper bounds: "List of upper bounds on $\\beta_0$ coefficient for each QOI, where the default is a list of -NaNs"
+  orders of convergence:
+    nominal: "List of nominal orders of convergence for each dimension"
+    variable: "List of booleans to enable/disable variable orders of convergence in error model"
+    lower bounds: "List of lower bounds on orders of convergence"
+    upper bounds: "List of upper bounds on orders of convergence"

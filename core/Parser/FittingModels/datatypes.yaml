@@ -1,0 +1,3 @@
+fitting models:
+  model set: str
+  weight exponent: real

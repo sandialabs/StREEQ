@@ -1,0 +1,6 @@
+#! /usr/bin/env bash
+
+TESTS_ROOT=$(dirname $(realpath ${BASH_SOURCE[0]}))
+
+cd $TESTS_ROOT/..
+python -m pytest $TESTS_ROOT/unit
